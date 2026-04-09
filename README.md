@@ -85,7 +85,7 @@ cp templates/library/README.md "$AGENT_DIR/kirby/library/"
 
 ### 4. Use it
 
-```
+```text
 /kirby https://example.com/interesting-article
 /kirby feast [url1] [url2] [url3]
 /kirby powers
@@ -130,4 +130,4 @@ kirby/
 
 ## Credits
 
-Built by [Mara DeWald](https://github.com/maradewald) as part of [Agent Mara](https://github.com/maradewald), a design leadership agent operating system. The concept: real people improve by learning from others. Agents should too.
+Built by Mara DeWald. The concept: real people improve by learning from others. Agents should too.
