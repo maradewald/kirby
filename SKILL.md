@@ -190,7 +190,7 @@ After approval:
 1. Create a file in `kirby/library/` (see Library Skill Format below)
 2. Update `kirby/library/README.md` roster
 
-**After all changes:** Run logging, version bump (if applicable), and meta-learning update (see Shared Operations).
+**After all changes:** Run logging, version bump (if applicable), meta-learning update, and report saving (see Shared Operations).
 
 ---
 
@@ -242,7 +242,7 @@ Approve all? Or tell me which to modify, skip, or recategorize.
 ```
 
 **Step 4: Implementation**
-Same as standard `/kirby`. Note all sources in absorption log.
+Same as standard `/kirby`. Note all sources in absorption log. In the report, note this was a feast and list all sources evaluated.
 
 ---
 
@@ -352,6 +352,7 @@ slug: [lowercase-hyphenated]
 source: [URL or description of original source]
 absorbed: [YYYY-MM-DD]
 category: [workflow | technique | pattern | tool-config | mental-model | prompt-pattern]
+triggers: [phrases or situations that signal this skill should be activated]
 times_used: 0
 ---
 
@@ -392,6 +393,49 @@ After every run that changes state:
 ```
 - **[YYYY-MM-DD]** — [Name] ([core/library]) — [Why] — Originally from: [source]
 ```
+
+### Report Saving
+
+After every source evaluation run (`/kirby` or `/kirby feast`), save a full report and update the run log. Do this after implementation, as part of the same operation as logging.
+
+**Report file** — Create `kirby/reports/YYYY-MM-DD-[slug].md` where slug is a short kebab-case description of the source(s):
+
+```markdown
+# Kirby Report — YYYY-MM-DD
+## [Source title / description]
+
+**Run type:** Standard | Feast ([N] sources)
+**Sources:** [URL(s) or description(s)]
+**Source quality:** [High/Medium/Low] — [one line]
+**Relevance:** [High/Medium/Low] — [one line]
+
+---
+
+## Phase 1 — Core ideas extracted
+[Numbered list of discrete ideas]
+
+## Phase 2 — Compatibility
+[Table: Idea | Verdict | Notes]
+
+## [For feast runs only] Cross-Source Synthesis
+[Consensus, contradictions, unique contributions]
+
+## Phase 3 — Proposal (outcome: approved / modified / rejected)
+[Absorb table, Reject table]
+
+## Identity signals captured this run
+[Any new identity signals, or "None"]
+
+## Changes made
+[Bullet list of files created/modified]
+```
+
+**Run log** — Append a row to `kirby/run-log.md`:
+```
+| YYYY-MM-DD | [Standard/Feast/Library activation] | [Source URL or ability name] | [Outcome summary. Report: `reports/[filename].md` or N/A] |
+```
+
+Library activations (`/kirby use`) and spits (`/kirby spit`) get a run-log row only — no full report file.
 
 ### Meta-Learning Update
 

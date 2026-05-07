@@ -74,11 +74,12 @@ Copy the templates into your agent's configuration directory (wherever that live
 # Adjust the destination to wherever your agent config lives
 AGENT_DIR="~/your-agent"
 
-mkdir -p "$AGENT_DIR/kirby/library"
+mkdir -p "$AGENT_DIR/kirby/library" "$AGENT_DIR/kirby/reports"
 cp templates/absorptions.md "$AGENT_DIR/kirby/"
 cp templates/rejections.md "$AGENT_DIR/kirby/"
 cp templates/spits.md "$AGENT_DIR/kirby/"
 cp templates/meta.md "$AGENT_DIR/kirby/"
+cp templates/run-log.md "$AGENT_DIR/kirby/"
 cp templates/TODO.md "$AGENT_DIR/kirby/"
 cp templates/library/README.md "$AGENT_DIR/kirby/library/"
 ```
@@ -118,9 +119,11 @@ kirby/
     rejections.md            <- Log of evaluated-but-rejected content
     spits.md                 <- Log of reversed/retired abilities
     meta.md                  <- Self-learning patterns across runs
+    run-log.md               <- Quick-reference index of every run (date, source, outcome)
     TODO.md                  <- Open items
     library/
-      README.md              <- Copy ability roster
+      README.md              <- Copy ability roster (with triggers column)
+    reports/                 <- Full Phase 1-3 analysis, one file per source evaluation run
 ```
 
 ## Requirements
